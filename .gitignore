@@ -1,0 +1,10 @@
+# Ignore all
+*
+
+# Include
+!LICENSE
+!.gitignore
+!*.md
+!*.go
+!*.mod
+!*.sum
