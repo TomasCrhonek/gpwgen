@@ -10,9 +10,9 @@ import (
 )
 
 var (
-	conso   = []string{"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "x", "y", "z"}
-	vocal   = []string{"a", "e", "i", "o", "u"}
-	spchars = []string{"!", "@", "#", "$", "%", "^", "*", "&", "*", "-", "+", "?"}
+	conso = []string{"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "x", "y", "z"}
+	vocal = []string{"a", "e", "i", "o", "u"}
+	spchr = []string{"!", "@", "#", "$", "%", "^", "*", "&", "*", "-", "+", "?"}
 )
 
 func pwgen(pwlen int, spchar bool) string {
@@ -35,9 +35,9 @@ func pwgen(pwlen int, spchar bool) string {
 	}
 
 	if spchar {
-		rnd_char := rand.Intn(len(spchars))
+		rnd_char := rand.Intn(len(spchr))
 		rnd_place := rand.Intn(len(password))
-		password = password[:rnd_place] + spchars[rnd_char] + password[rnd_place+1:]
+		password = password[:rnd_place] + spchr[rnd_char] + password[rnd_place+1:]
 	}
 
 	rnd_place := rand.Intn(len(password))
@@ -65,8 +65,6 @@ func main() {
 	if *length%2 == 1 {
 		*length += 1
 	}
-
-	rand.Seed(time.Now().UnixNano())
 
 	for i := 0; i < *num; i++ {
 		fmt.Println(pwgen(*length, *special))
