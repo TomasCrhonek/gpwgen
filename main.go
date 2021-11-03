@@ -18,8 +18,12 @@ var (
 func pwgen(pwlen int, spchar bool) string {
 	var password string
 
-	if pwlen >= 6 && (pwlen%2) != 0 {
+	if pwlen < 12 {
 		pwlen = 12
+	}
+
+	if pwlen%2 == 1 {
+		pwlen += 1
 	}
 
 	length := pwlen - 2
