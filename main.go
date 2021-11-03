@@ -47,6 +47,10 @@ func pwgen(pwlen int, spchar bool) string {
 	return password
 }
 
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
 func main() {
 	length := flag.Int("l", 12, "Password length")
 	num := flag.Int("n", 1, "Number of generated password")
