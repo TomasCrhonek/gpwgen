@@ -26,10 +26,9 @@ func pwgen(pwlen int, spchar bool) string {
 		pwlen += 1
 	}
 
-	length := pwlen - 2
-	max := length / 2
+	length := (pwlen - 2) / 2
 
-	for i := 1; i <= max; i++ {
+	for i := 1; i <= length; i++ {
 		password += conso[rand.Intn(len(conso))]
 		password += vocal[rand.Intn(len(vocal))]
 	}
